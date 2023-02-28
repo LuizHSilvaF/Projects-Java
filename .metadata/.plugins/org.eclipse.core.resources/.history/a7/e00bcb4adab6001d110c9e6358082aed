@@ -1,0 +1,17 @@
+package services;
+
+import java.security.InvalidParameterException;
+
+public interface InterestService {
+
+	double getInterestRate();
+	
+	public double payment(double amount, int mouths)
+	{
+		if (mouths < 1)
+		{
+			throw new InvalidParameterException("Mouths must be greater then zero");
+		}
+		return amount * Math.pow(1.0 + getinterestRate / 100.0, mouths);
+	}
+}

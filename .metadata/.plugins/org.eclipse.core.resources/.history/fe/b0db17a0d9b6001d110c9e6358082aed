@@ -1,0 +1,28 @@
+package services;
+
+import java.security.InvalidParameterException;
+
+public class USAInterestService2 {
+
+	private double interestRate;
+	
+	public USAInterestService2(double interestRate)
+	{
+		this.interestRate = interestRate;
+	}
+
+	public double getInterestRate() {
+		return interestRate;
+	}
+
+	public double payment(double amount, int mouths)
+	{
+		if (mouths < 1)
+		{
+			throw new InvalidParameterException("Mouths must be greater then zero");
+		}
+		return amount * Math.pow(1.0 + interestRate / 100.0, mouths);
+	}
+	
+	
+}

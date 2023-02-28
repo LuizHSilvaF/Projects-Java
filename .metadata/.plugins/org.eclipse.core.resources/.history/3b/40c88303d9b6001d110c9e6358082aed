@@ -1,0 +1,25 @@
+package application;
+
+import java.util.Scanner;
+
+public class Program {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Amount: ");
+		double amount = sc.nextDouble();
+		System.out.println("Mouths	: ");
+		int mouths = sc.nextInt();
+		
+		USAInterestService is = new USAInterestService(2.0);
+		double payment = is.payment(amount, mouths);
+		
+		System.out.println("Payment after " +mouths+ " mouths:");
+		System.out.println(String.format("%.2f", payment));
+		
+		sc.close();
+	}
+
+}
